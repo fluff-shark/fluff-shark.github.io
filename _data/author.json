@@ -1,7 +1,5 @@
 {
-  "name": "John Doe",
-  "bio": "John is a designer, photographer, speaker, author of a couple of books about typography and the founder of photo magazine Curious.",
-  "url": "https://justgoodthemes.com",
-  "location": "Vilnius, Lithuania",
-  "image": "images/author.png"
+  "name": "Dave Bemiller",
+  "bio": "Dave is a full stack engineer with a passion for user experience and well-designed tools.",
+  "image": "images/author.jpg"
 }
