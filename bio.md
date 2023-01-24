@@ -13,9 +13,8 @@ My academic interests are [law](https://popehat.substack.com/),
 [finance](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142),
 [psychology](https://www.amazon.com/Behave-Biology-Humans-Best-Worst/dp/009957506X),
 [design](https://www.coursera.org/specializations/ui-ux-design), and
-of course software engineering.
+of course software engineering. My hobbies are hiking, snowboarding, and video games, depending on the weather and time of year.
 
-My hobbies are hiking, snowboarding, and video games, depending on the weather and time of year.
 My wife and I share our house with three photogenic cats:
 
 {% include image_caption.html imageurl="/images/duke-of-fluffington.jpg" title="Fluffy cat" caption="The Duke of Fluffington" %}
