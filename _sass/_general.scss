@@ -248,6 +248,21 @@ video {
   text-align: left;
 }
 
+.tiled-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tiled-images .image-card {
+  flex-grow: 1;
+}
+
+.tiled-images img {
+  object-fit: contain;
+  max-height: 70vh;
+}
+
 @media only screen and (min-width: 851px) {
   .width-full img,
   .width-wide img {
