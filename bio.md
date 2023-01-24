@@ -4,19 +4,19 @@ title: About the author
 description: A page introducing Dave and this blog.
 ---
 
-Hi. I'm **Dave Bemiller**, a full stack Staff Engineer in the mountains of central Pennsylvania.
-After graduating from Carnegie Mellon in 2011, I considered three plans for adulthood:
+I'm **Dave Bemiller**, a full stack Staff Engineer working remotely from the mountains of
+central Pennsylvania. After graduating from Carnegie Mellon with a Physics degree in 2011, I've been working happily as a software engineer in [education](https://www.ixl.com),
+[finance](https://www.creditkarma.com), [advertising](https://www.xandr.com), and
+[healthcare](https://carbonhealth.com).
 
-1. Become a software engineer
-2. Move to Asia and tutor English
-3. Be homeless
+My academic interests are [law](https://popehat.substack.com/),
+[finance](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142),
+[psychology](https://www.amazon.com/Behave-Biology-Humans-Best-Worst/dp/009957506X),
+[design](https://www.coursera.org/specializations/ui-ux-design), and
+of course software engineering.
 
-Thankfully, option 1 was a great success. I've since worked as an engineer in
-[education](https://www.ixl.com), [finance](https://www.creditkarma.com),
-[advertising](https://www.xandr.com), and [healthcare](https://carbonhealth.com).
-
-My other primary academic interests are law and finance. My hobbies are hiking,
-snowboarding, and video games. My wife and I share our house with three photogenic cats.
+My hobbies are hiking, snowboarding, and video games, depending on the weather and time of year.
+My wife and I share our house with three photogenic cats:
 
 {% include image_caption.html imageurl="/images/duke-of-fluffington.jpg" title="Fluffy cat" caption="The Duke of Fluffington" %}
 
