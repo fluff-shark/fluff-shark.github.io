@@ -11,11 +11,9 @@ textarea {
 }
 
 html {
-  border: 15px solid _palette(accent);
   box-sizing: border-box;
 
   @media only screen and (max-width: 600px) {
-    border-width: 5px;
     font-size: 100%;
   }
 }
