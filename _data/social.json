@@ -13,7 +13,7 @@
     {
       "title": "RSS",
       "icon": "fa-rss",
-      "url": "/feed.xml"
+      "url": "/rss.xml"
     }
   ]
 }
