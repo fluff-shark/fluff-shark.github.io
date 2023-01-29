@@ -13,7 +13,8 @@ My academic interests are [law](https://popehat.substack.com/),
 [finance](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142),
 [psychology](https://www.amazon.com/Behave-Biology-Humans-Best-Worst/dp/009957506X),
 [design](https://www.coursera.org/specializations/ui-ux-design), and
-of course software engineering. My other hobbies are hiking, snowboarding, and video games, depending on the weather and time of year.
+of course [software engineering](https://www.amazon.com/dp/B08RMSHYGG). My other hobbies are
+hiking, snowboarding, and video games, depending on the weather and time of year.
 
 My wife and I live with three photogenic fluffs:
 
