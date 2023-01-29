@@ -9,6 +9,11 @@
       "title": "LinkedIn",
       "icon": "fa-linkedin",
       "url": "https://www.linkedin.com/in/dave-bemiller-92a75917"
+    },
+    {
+      "title": "RSS",
+      "icon": "fa-rss",
+      "url": "/feed.xml"
     }
   ]
 }

@@ -2,7 +2,8 @@
 layout: post
 title: "Why Write?"
 description: "Dave explains why he started writing and publishing in this blog."
-date: 2023-01-22
+synopsis: "Writing has never been one of Dave's hobbies. So why did he start this blog, and what does he hope to gain from it?"
+date: 2023-01-29
 tags: [personal]
 ---
 
