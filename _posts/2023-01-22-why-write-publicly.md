@@ -6,7 +6,7 @@ date: 2023-01-22
 tags: [personal]
 ---
 
-Writing has never been one of my hobbies. So why did I start this site?
+Writing has never been one of my hobbies. So why start now?
 
 <!--more-->
 
