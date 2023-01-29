@@ -19,21 +19,6 @@
   margin-bottom: 1.25em;
 }
 
-.post-meta {
-  font-family: _font(secondary);
-  font-size: 0.88889rem;
-  font-style: italic;
-  margin-bottom: 1.11111rem;
-}
-
-.post-tags {
-  a {
-    &:before {
-      content: "\0023";
-    }
-  }
-}
-
 .post-title {
   font-size: 2rem;
   margin: 0 0 1rem;
