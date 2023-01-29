@@ -4,7 +4,7 @@ title: "Some title"
 description: "Some description."
 date: 2019-01-01
 feature_image: images/author.jpg 
-tags: [post, , tags, here]
+tags: [post, tags, here]
 published: false
 ---
 

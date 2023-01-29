@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Why Write?"
-description: "Dave describes why he started writing and publishing"
+description: "Dave explains why he started writing and publishing in this blog."
 date: 2023-01-22
 tags: [personal]
 ---
 
-Writing has never been one of my hobbies. So why start now?
+Writing has never been one of my hobbies. So why do it?
 
 <!--more-->
 

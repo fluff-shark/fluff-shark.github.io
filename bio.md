@@ -1,15 +1,15 @@
 ---
 layout: page
 title: About the author
-description: A page introducing Dave and this blog.
+description: A page which introduces Dave.
 ---
 
 I'm **Dave Bemiller**, a full stack Staff Engineer working remotely from the mountains of
-central Pennsylvania. After graduating in 2011 from Carnegie Mellon with a Physics degree, I've been working ever since as a software engineer in [education](https://www.ixl.com),
+central Pennsylvania. After graduating in 2011 from Carnegie Mellon with a Physics degree, I've been working as a software engineer in [education](https://www.ixl.com),
 [finance](https://www.creditkarma.com), [advertising](https://www.xandr.com), and
 [healthcare](https://carbonhealth.com).
 
-My academic interests are [law](https://popehat.substack.com/),
+My main academic interests are [law](https://popehat.substack.com/),
 [finance](https://www.amazon.com/Adaptive-Markets-Financial-Evolution-Thought/dp/0691135142),
 [psychology](https://www.amazon.com/Behave-Biology-Humans-Best-Worst/dp/009957506X),
 [design](https://www.coursera.org/specializations/ui-ux-design), and
