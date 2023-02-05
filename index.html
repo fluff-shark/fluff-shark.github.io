@@ -13,9 +13,9 @@ layout: default
       <figure class="post-thumbnail image-card width-wide">
         <a href="{{site.baseurl}}{{post.url}}"><img src="{{ post.feature_image | relative_url }}"
             alt="{{ post.title }}"></a>
-      </figure><!-- .post-thumbnail -->
+      </figure>
       {% endif %}
-    </header><!-- .post-header -->
+    </header>
     <div class="post-content">
       {% if post.content contains '<!--more-->' %}
       {{ post.content | split:'<!--more-->' | first }}
@@ -24,8 +24,8 @@ layout: default
       {% else %}
       {{ post.content }}
       {% endif %}
-    </div><!-- .post-content -->
-  </article><!-- .post -->
+    </div>
+  </article>
   {% endfor %}
 
   {% if paginator.total_pages > 1 %}
@@ -40,7 +40,7 @@ layout: default
       <a href="{{ paginator.next_page_path | relative_url }}" class="older-posts">Older Posts &rarr;</a>
       {% endif %}
     </div>
-  </nav><!-- .pagination -->
+  </nav>
   {% endif %}
 
-</main><!-- .site-main -->
+</main>

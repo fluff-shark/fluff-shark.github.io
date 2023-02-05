@@ -8,23 +8,22 @@ layout: default
     <header class="post-header">
       <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{page.date | date: "%B %-d, %Y" }}</time>
       <h1 class="post-title">{{page.title}}</h1>
-      <!-- .post-meta -->
       {% if page.feature_image and page.feature_image != "" %}
       <figure class="post-thumbnail image-card width-wide">
         <img src="{{ page.feature_image | relative_url }}" alt="{{ page.title }}">
-      </figure><!-- .post-thumbnail -->
+      </figure>
       {% endif %}
-    </header><!-- .post-header -->
+    </header>
     <div class="post-content">
       {{content}}
-    </div><!-- .post-content -->
+    </div>
     <div class="post-share">
       <span>Share:</span>
       <a target="_blank"
         href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&amp;url={{ page.url | absolute_url }}" rel="noopener">Twitter</a>
       <a target="_blank"
         href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}&amp;t={{ page.title | uri_escape }}" rel="noopener">Facebook</a>
-    </div><!-- .share-post -->
+    </div>
     <div class="author-box">
       {% if site.data.author.image and site.data.author.image != "" %}
       <div class="author-avatar" style="background-image: url('{{ site.data.author.image }}')"><span class="screen-reader-text">{{ site.data.author.name }}'s Picture</span></div>
@@ -32,7 +31,7 @@ layout: default
       <div class="author-details">
         <h2 class="author-title">About the author</h2>
         <div class="author-bio">{{ site.data.author.bio | markdownify }}</div>
-      </div><!-- .author-details -->
-    </div><!-- .author-box -->
-  </article><!-- .post -->
-</main><!-- .main-content -->
+      </div>
+    </div>
+  </article>
+</main>
