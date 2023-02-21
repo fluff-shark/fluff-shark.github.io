@@ -4,8 +4,11 @@ title: About the author
 description: A page which introduces Dave.
 ---
 
-I'm **Dave Bemiller**, a full stack Staff Engineer working remotely from the mountains of
-central Pennsylvania. After graduating in 2011 from Carnegie Mellon with a Physics degree, I've been working as a software engineer in [education](https://www.ixl.com),
+{% assign id = "school-context" %}
+
+I'm **Dave Bemiller**, a full stack staff software engineer working remotely from Pennsylvania.
+After graduating from Carnegie Mellon <noscript>in 2011</noscript> with a Physics degree,
+I've <span id="{{id}}"></span><noscript>worked in</noscript> [education](https://www.ixl.com),
 [finance](https://www.creditkarma.com), [advertising](https://www.xandr.com), and
 [healthcare](https://carbonhealth.com).
 
@@ -23,3 +26,12 @@ My wife and I live with three photogenic fluffs:
 {% include image_tile.html imageurl="/images/spider-cat.jpg" title="Climbing cat" caption="Spider Cat" %}
 {% include image_tile.html imageurl="/images/seductive-fee.jpg" title="Fat cat" caption="The Most Interesting Cat in the World" %}
 </section>
+
+<script async type="text/javascript">
+(function() {
+    const now = new Date();
+    const thisYear = now.getFullYear();
+    const yearsSince2011 = thisYear - 2011;
+    document.getElementById("{{id}}").innerText = "spent " + yearsSince2011 + " years engineering for";
+})();
+</script>
