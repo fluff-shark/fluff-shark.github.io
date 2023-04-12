@@ -57,7 +57,7 @@ App code has even more concerns:
 
 Client code updates _can be_ Type 1, but we can minimize the risk by:
 
-- **Using [feature flags]((https://www.atlassian.com/continuous-delivery/principles/feature-flags))**:
+- **Using [feature flags](https://www.atlassian.com/continuous-delivery/principles/feature-flags)**:
 Feature flags can be used to roll back instantly if new client code causes problems in production.
 - **Setting Cache-Control wisely**: Be deliberate about your
 [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) header choices.
