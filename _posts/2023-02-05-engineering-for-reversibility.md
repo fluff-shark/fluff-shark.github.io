@@ -17,7 +17,7 @@ Jeff Bezos wrote:
 > aren’t like that – they are changeable, reversible – they’re two-way doors. If you’ve made a
 > suboptimal Type 2 decision, you don’t have to live with the consequences for that long.
 > You can reopen the door and go back through. Type 2 decisions can and should be made quickly
-> by high judgment individuals or small groups. 
+> by high judgment individuals or small groups.
 
 This put two questions on my mind:
 
@@ -87,7 +87,7 @@ Some best practices here are:
 
 - **Consolidate the read/write code as much as possible**: The fewer places that the code touches
 the data source, the easier (1) and (2) will be.
-- **If you expect lots of data, treat the model as a Type 1 decision**: The ELT in (3) has a
+- **If you expect lots of data, treat the model as a Type 1 decision**: The ETL in (3) has a
 best case runtime of `O(numObjects)`. If there will be many objects, transforms will become
 prohibitively expensive.
 
