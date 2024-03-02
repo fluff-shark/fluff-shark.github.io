@@ -201,7 +201,7 @@ then there's no reason to run that suite when the callee's production code chang
 
 Of course, there's a catch. This layer of doubles splits the test suite in half, which does not guarantee correct behavior:
 
-{% include integration-test-doors.gif imageurl="/images/integration-test-doors.gif" title="Two motion sensor gates which continually trigger each other to open and shut" %}
+{% include image_tile.html imageurl="/images/integration-test-doors.gif" title="Two motion sensor gates which continually trigger each other to open and shut" %}
 
 so this strategy only works well _if_ your engineers have a culture of treating backwards compatibility seriously. It also emphasizes the importance of the second principle!
 
