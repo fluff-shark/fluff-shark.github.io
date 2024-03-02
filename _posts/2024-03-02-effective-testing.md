@@ -26,13 +26,8 @@ The primary purpose of tests is **to confirm that the code is production-ready**
 If every release-blocking bug produces a failing test, then the project's DORA
 [change failure rate](https://cloud.google.com/blog/products/devops-sre/announcing-dora-2021-accelerate-state-of-devops-report) is 0%.
 
-If every failing test indicates a release-blocking bug, the test suite is not adding development headwinds.
-This warrants an example. Suppose I make a PR which splits one large class into two. The code is cut/pasted,
-and all callers are updated. Assume I did this properly and no bugs were introduced.
-
-If the refactor somehow caused tests to fail, I would need to "fix" those tests to pass the CI. In other words, the suite
-has made my refactor _more expensive_. Headwinds like these discourage me from refactoring, which results in lower
-quality code over time.
+If tests fail when there's no release-blocking bug, then the suite creates _headwinds_ which slow down development.
+Engineers need to spend time investigating and "fixing" those tests while they build out new features.
 
 ## How do we build an effective test suite?
 
@@ -143,37 +138,30 @@ separately against a deployment _with production config values_
 
 #### Test doubles
 
-Test doubles are, by definition, _not production code_. Tests which use them can fail
+Test doubles are, by definition, _not production code_. Tests which use them may fail
 _if the double's defined behavior does not match production_.
 
-Remember the core goal:
+This brushes up against to the core goal:
 
 > Every failing test indicates a release-blocking bug
 
-Suppose a test suite defines a double for some class, and we want to refactor that class by splitting it in half
-and updating the callers. Even if the refactor is bug-free, the tests will still fail.
+Suppose I make a PR which splits one large class into two. The code is cut/pasted,
+and all callers are updated. Assume I did this properly and no bugs were introduced.
 
-My philosophy is to _double sparingly, and with good reason_. When doubles are justified, try to double as small a function as possible.
+Now imagine what happens if a test defined a mock for that class. That test would fail on my _safe_ refactor,
+which I now need to "fix" before merging. In other words, the double has made refactoring more expensive.
+The more expensive a refactor is, the less likely I am to do it, which means lower quality code over time.
 
-As a general rule of thumb, I've found that doubles for
-
-1. **Randomness & system time** are safe, but only necessary in rare cases, when the test assertions depend on them
-2. **System timezone** don't cause problems, but slightly more fragile than setting it in the test bootstrap code
-3. **Network, including caches & databases** are nearly always worth doubling, with the caveat that production code uses 'thin' classes or functions that don't do anything interesting besides make the network call. Some very small projects with upstream dependencies that are easy to run locally may not need to though.
-4. **Filesystem** are outside my realm of experience. I just don't have experience with this kind of code.
-5. **Configuration** are never worth it. Instead, run the test suite with intentionally chosen environment variables.
-
-One common argument that I hear but _don't_ believe is that doubles "help make tests easier to write." In almost all
-cases, this stems from having bad utility functions in the test code. Better to refactor the test code into better
-utils so that the tests are easier to write than to start adding doubles.
+My philosophy is to _double sparingly, and with good reason_. When doubles are justified, try to organize the live code
+so that you can double as small a function as possible. e.g. write a layer of "thin" classes or functions for outbound
+network calls.
 
 #### Performance
 
-Since the test suite's goal is to prevent user-facing bugs from being deployed, an effective test suite
-needs be run on every deployment. A slow test suite will directly hurt your "Deployment Frequency"
-and "Lead Time for Changes" DORA metrics.
+To prevent user-facing bugs from being deployed, effective tests need be run on every deployment.
+A slow test suite will directly hurt your "Deployment Frequency" and "Lead Time for Changes" DORA metrics.
 
-I have seen a few ways to speed up a test suite:
+I know of a few ways to speed up a test suite:
 
 1. Run the test cases in parallel
 2. Write tests which are "less" end-to-end "less end-to-end" (e.g. replace Cypress with React Testing Library)
@@ -215,7 +203,8 @@ Another perk here is that running subsets of tests means spending fewer CPU cycl
 can save a lot of money on operating expenses.
 
 **Replacing slow operations with doubles** _just_ for the sake of performance is not generally worth it.
-The biggest gains will have already been achieved by using doubles for network calls, for all the reasons above.
+The biggest gains come from using doubles for network calls, which is already generally justified for the
+other reasons described earlier.
 
 ## Counterarguments
 
@@ -240,8 +229,8 @@ I see two actions which mitigate this argument:
 1. Remove sources of flakiness, so the test suite only fails if _these_ changes broke something
 2. Make smaller PRs and merge them more frequently
 
-(2) deserves a blog post of its own... but one of its many benefits is that the root causes of failing tests
-are much easier to track down.
+"Smaller PRs" deserve a blog post on their own. One of their many benefits is that it makes the root cause
+of failing tests much easier to track down, even if the tests themselves cover a very large amount of code.
 
 ## Summary
 
