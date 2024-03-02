@@ -48,7 +48,7 @@ For web servers, the "surface area" is _any public endpoint_ and the "user" is _
 
 For a full web application, the "surface area" is _the user experience_ and the "user" is _a real human_.
 
-### Start by imagining a fully "end-to-end" test suite
+### Imagine a perfect "end-to-end" test suite
 
 To catch "bugs that impact users," the suite must _behave like a user does_.
 
@@ -99,35 +99,35 @@ that another option is to _run the upstream service on the same machine_ and con
 
 I tend to avoid running the upstream service(s) locally because:
 
-1. The tools to define a "set" of upstream services, run them, and wait for them all to be "ready" adds a lot complexity to the test setup
-2. Waiting for upstream services to come online adds much more time to the test startup
-3. Network calls are much slower than test doubles (more on performance later!)
-4. If your code depends on _enough_ upstream services, it may not be possible to run them all on the same machine.
+- It complicates the test setup. Something needs to define the "set" of upstream services, run them, and wait for them all to be "ready" before executing tests
+- These complications make the test startup much slower
+- Network calls are much slower than test doubles, which slows down the suite
+- If your code depends on _enough_ upstream services, it may not be possible to run them all on the same machine.
+
+That's not to say it's _never_ a good idea to run upsream services locally--just that I don't find the juice worth the squeeze.
 
 #### Filesystem Calls
 
-The filesystem is global, mutable state which lives on disk. This causes two issues:
+The filesystem is global, mutable state on disk. This causes two issues:
 
-1. Tests which read and write to the filesystem can't be run in parallel
-2. Reading and writing to disk is much slower than reading and writing to memory.
+- Tests which read and write to global, mutable state can't be run in parallel
+- Reading and writing to disk is much slower than reading and writing to memory
 
 If the testable application is small, it _may_ be ok for tests to read from disk directly.
-If big, it's worth using test doubles so that you don't end up stuck with a slow test suite.
+Just beware that this is a major strategic decision! As the application grows, it will become
+slower at a smaller size _and_ it will be harder to speed up by parallelizing the suite.
 
 #### Caches and Databases
 
 Caches and databases are global, mutable state which require a network call to interact with.
-Combine the considerations from the two sections above.
-
-A small test suite could run them locally and exercise the real code, _but_ beware that this is a
-major strategic decision. As the application grows, the test suite will become slower more quickly
-_and_ it will be harder to speed up by parallelizing.
+Combine the considerations from the two sections above, and amplify the effect because the
+network is slower than disk.
 
 #### Side effects
 
 A test probably shouldn't bill an _actual_ credit card, or place a _real_ order for supplies from a third party company.
 
-These types of operations _must_ be replaced by test doubles.
+Operations like these _must_ be replaced by test doubles.
 
 #### Configuration
 
