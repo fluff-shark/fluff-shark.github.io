@@ -163,10 +163,10 @@ A slow test suite will directly hurt your "Deployment Frequency" and "Lead Time 
 
 I know of a few ways to speed up a test suite:
 
-1. Run the test cases in parallel
-2. Write tests which are "less" end-to-end "less end-to-end" (e.g. replace Cypress with React Testing Library)
-3. Partition the test suite. On code/config change, run only the _subset_ of tests which could plausibly break
-4. Replace slow operations with faster test doubles
+- Run the test cases in parallel
+- Write tests which are "less" end-to-end "less end-to-end" (e.g. replace Cypress with React Testing Library)
+- Partition the test suite. On code/config change, run only the _subset_ of tests which could plausibly break
+- Replace slow operations with faster test doubles
 
 In my opinion, these are where the most intersting judgment calls get made.
 
@@ -224,10 +224,10 @@ If/when I discover more, I'll update that section if I can think of a suitable w
 The argument here is that end-to-end tests run "too much code," so when they fail it's very difficult to
 find out why.
 
-I see two actions which mitigate this argument:
+I see two ways to mitigate this argument:
 
-1. Remove sources of flakiness, so the test suite only fails if _these_ changes broke something
-2. Make smaller PRs and merge them more frequently
+- Remove sources of flakiness, so the test suite only fails if _these_ changes broke something
+- Make smaller PRs and merge them more frequently
 
 "Smaller PRs" deserve a blog post on their own. One of their many benefits is that it makes the root cause
 of failing tests much easier to track down, even if the tests themselves cover a very large amount of code.
@@ -240,8 +240,11 @@ A well-built test suite accomplishes two goals:
 - Every failing test indicates a release-blocking bug
 
 **Ideally** the test suite behaves like a user on production, but in practice _most software requires compromises_.
+
 **Test doubles** can reduce flakiness when used strategically, but should be used _sparingly, and with good reason_. There
 are some very pervasive _bad_ arguments to use test doubles, which are better managed by making smaller PRs and building better test utils to share code.
+
 **Parallelization** will keep the test suite running fast as long as _global, mutable state_ is managed well.
+
 **Partitioning the test suite** introduces some risks that bugs slip through, but it's also an easy way to save money
 on CI bills and make the suite run faster.
