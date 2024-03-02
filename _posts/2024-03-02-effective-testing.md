@@ -1,48 +1,43 @@
 ---
 layout: post
-title: "Test Suite Strategy"
+title: "Effective Testing"
 description: "What makes a good test suite, and why?"
-synopsis: "Yet another engineer's hot take on building fast, effective test suites"
+synopsis: "Yet another hot take on what it takes to build fast, effective test suites"
 date: 2024-03-02
 tags: [software-testing]
 ---
 
 Historically, the standard strategy for testing software was
-[the test pyramid](https://martinfowler.com/bliki/TestPyramid.html)
+[the test pyramid](https://martinfowler.com/bliki/TestPyramid.html). More recently, developers
+[challenged this strategy](https://twitter.com/swyx/status/1261202288476971008), but it's unclear
+whether their objections are [substantive or semantic](https://martinfowler.com/articles/2021-test-shapes.html).
 
-More recently, developers [challenged this strategy](https://twitter.com/swyx/status/1261202288476971008),
-but it's unclear whether their objections are [substantive or semantic](https://martinfowler.com/articles/2021-test-shapes.html).
-
-This post is my hot take on what makes a good test strategy and why.
+This is my hot take on building an effective test suite.
 
 <!--more-->
 
-First I'd like to ask:
-
 ## What do we expect from our test suite in the first place?
 
-The primary purpose of tests is **to confirm that the code is production-ready**. Or put another way:
+The primary purpose of tests is **to confirm that the code is production-ready**. In other words:
 
 - Every release-blocking bug produces a failing test
 - Every failing test indicates a release-blocking bug
 
-"Change failure rate" is one of the four [DORA metrics](https://cloud.google.com/blog/products/devops-sre/announcing-dora-2021-accelerate-state-of-devops-report),
-and the test suite is the most important tool for improving it. If every release-blocking bug produces a failing test, then
-the change failure rate would be 0%.
+If every release-blocking bug produces a failing test, then the project's DORA
+[change failure rate](https://cloud.google.com/blog/products/devops-sre/announcing-dora-2021-accelerate-state-of-devops-report) is 0%.
 
-The second goal as a measure of _maintenance cost_. Suppose I just want to move some code around,
-rename some functions, or do other refactoring which _does not_ introduce bugs.
+If every failing test indicates a release-blocking bug, the test suite is not adding development headwinds.
+This warrants an example. Suppose I make a PR which splits one large class into two. The code is cut/pasted,
+and all callers are updated. Assume I did this properly and no bugs were introduced.
 
-If refactoring causes tests to fail, I will need to update those before merging. That makes the reafactor _more expensive_
-than if no tests were to fail. The more expensive a refactor is, the less likely I am to do it, and the lower quality the
-code will become over time.
-
-With that in mind:
+If the refactor somehow caused tests to fail, I would need to "fix" those tests to pass the CI. In other words, the suite
+has made my refactor _more expensive_. Headwinds like these discourage me from refactoring, which results in lower
+quality code over time.
 
 ## How do we build an effective test suite?
 
 This depends on the size and type of the software being built.
-So while there's no single answer, this is my process:
+While there's no single answer, this process has worked pretty well for me.
 
 ### Identify the software's "user" and "surface area"
 
@@ -62,13 +57,18 @@ For published packages, that means calling the public methods using your favorit
 For web servers, it means spinning up a server process, database, etc. and making network calls with your
 favorite unit test framework and HTTP client.
 
-For full web applications, it means ~~building a robot to use the mouse and keyboard~~ using software like
-Cypress or Selenium to imitate the human.
+For full web applications, it means building a robot to use the mouse and keyboard.
 
 ### Make compromises for practical problems
 
-Almost all "end-to-end" test suites will hit _some_ kind of practical problems.
-This section describes them, and discusses some workarounds.
+Almost all "end-to-end" test suites for even simple projects will hit _some_ kind of practical problems.
+
+#### Robots are science fiction
+
+As of 2024, we do not yet have robots that can use the mouse and keyboard and interpret the program's
+behavior like a human would.
+
+The best we can do is use tools like Cypress, Selenium, Webdriver.io, etc.
 
 #### Randomness
 
