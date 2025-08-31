@@ -12,7 +12,7 @@ lang: en-US
 title: "Dave's Space"
 
 # A description of your site for meta tag, search engine results.
-description: "Thoughts on software which have followed me throughout my career."
+description: "Thoughts on subjects which follow me throughout my career."
 
 # The subpath of your site, e.g. /blog, for generating urls.
 baseurl: ""
