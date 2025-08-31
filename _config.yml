@@ -12,7 +12,7 @@ lang: en-US
 title: "Dave's Space"
 
 # A description of your site for meta tag, search engine results.
-description: "A intellectually curious software engineer's blog."
+description: "Thoughts on software which have followed me throughout my career."
 
 # The subpath of your site, e.g. /blog, for generating urls.
 baseurl: ""
@@ -33,7 +33,7 @@ navigation:
     url: /bio
 
 # Colors
-accent_color: '#2d72d9'
+accent_color: "#2d72d9"
 
 # Site footer
 footer:
@@ -45,8 +45,7 @@ plugins:
 
 # http://jekyllrb.com/docs/pagination/
 paginate: 3
-paginate_path: '/page/:num'
-
+paginate_path: "/page/:num"
 
 # Permalinks
 permalink: /:title
